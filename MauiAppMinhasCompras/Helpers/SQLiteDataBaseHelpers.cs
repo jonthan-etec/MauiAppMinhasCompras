@@ -28,18 +28,18 @@ namespace MauiAppMinhasCompras.Helpers
 
         }
 
-        public Task<int> Delete(int id) 
+        public Task<int> Delete(int id)
         {
             return _connection.Table<Produto>().DeleteAsync(i => i.Id == id);
         }
-        public Task<List<Produto>> GetAll() 
+        public Task<List<Produto>> GetAll()
         {
             return _connection.Table<Produto>().ToListAsync();
         }
         public Task<List<Produto>> Search(string q)
         {
-            string sql = "SELECT * Produto WHERE Descricao LIKE '%" + q + "%'";
-            return _connection.QueryAsync<Produto>(sql);
+            string sql = "SELECT * FROM Produto WHERE Descricao LIKE ?";
+            return _connection.QueryAsync<Produto>(sql, "%" + q + "%");
         }
     }
 }
