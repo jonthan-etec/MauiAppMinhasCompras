@@ -21,13 +21,13 @@ public partial class NovoProduto : ContentPage
 
         if (!double.TryParse(txt_quantidade.Text, out double quantidade))
         {
-            await DisplayAlert("Erro", "Quantidade inválida! Digite um número válido.", "OK");
+            await DisplayAlert("Erro", "Quantidade invï¿½lida! Digite um nï¿½mero vï¿½lido.", "OK");
             return;
         }
 
         if (!double.TryParse(txt_preco.Text, out double preco))
         {
-            await DisplayAlert("Erro", "Preço inválido! Digite um número válido.", "OK");
+            await DisplayAlert("Erro", "Preï¿½o invï¿½lido! Digite um nï¿½mero vï¿½lido.", "OK");
             return;
         }
 
@@ -44,7 +44,7 @@ public partial class NovoProduto : ContentPage
 
             await DisplayAlert("Sucesso", "Registro inserido com sucesso!", "OK");
 
-            // Limpar os campos após salvar
+            // Limpar os campos apï¿½s salvar
             txt_descricao.Text = string.Empty;
             txt_quantidade.Text = string.Empty;
             txt_preco.Text = string.Empty;
