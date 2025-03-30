@@ -21,13 +21,13 @@ public partial class NovoProduto : ContentPage
 
         if (!double.TryParse(txt_quantidade.Text, out double quantidade))
         {
-            await DisplayAlert("Erro", "Quantidade inv�lida! Digite um n�mero v�lido.", "OK");
+            await DisplayAlert("Erro", "Quantidade inválida! Digite um número válido.", "OK");
             return;
         }
 
         if (!double.TryParse(txt_preco.Text, out double preco))
         {
-            await DisplayAlert("Erro", "Pre�o inv�lido! Digite um n�mero v�lido.", "OK");
+            await DisplayAlert("Erro", "Preço inválido! Digite um número válido.", "OK");
             return;
         }
 
@@ -38,13 +38,14 @@ public partial class NovoProduto : ContentPage
                 Descricao = txt_descricao.Text,
                 Quantidade = quantidade,
                 Preco = preco,
+                Categoria = picker_categoria.SelectedItem?.ToString() ?? "Outros",
+                DataCadastro = date_cadastro.Date
             };
 
             await App.Db.Insert(p);
 
             await DisplayAlert("Sucesso", "Registro inserido com sucesso!", "OK");
 
-            // Limpar os campos ap�s salvar
             txt_descricao.Text = string.Empty;
             txt_quantidade.Text = string.Empty;
             txt_preco.Text = string.Empty;
